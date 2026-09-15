@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* ===== CUSTOM CURSOR ===== */
+/* Sembunyikan cursor default di desktop */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Animasi pulse untuk cursor */
+@keyframes cursorPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
