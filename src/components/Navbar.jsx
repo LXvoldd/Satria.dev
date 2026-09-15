@@ -21,31 +21,31 @@ function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.08)] py-3 lg:py-4"
-          : "bg-transparent py-5 lg:py-6"
+          ? "bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.08)] py-5 lg:py-7"
+          : "bg-transparent py-8 lg:py-10"
       }`}
     >
       <div className="w-full px-6 lg:px-12 xl:px-20 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — besar */}
         <motion.a
           href="#home"
           whileHover={{ scale: 1.05 }}
-          className="text-2xl lg:text-3xl font-bold text-slate-800"
+          className="text-4xl lg:text-5xl font-bold text-slate-800"
         >
-          Satria<span className="text-blue-600">.dev</span>
+          Satria<span className="text-blue-600">.</span>
         </motion.a>
 
-        {/* Menu Desktop */}
-        <ul className="hidden md:flex items-center gap-8 lg:gap-10">
+        {/* Menu Desktop — besar */}
+        <ul className="hidden md:flex items-center gap-8 lg:gap-12">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a
                 href={link.href}
-                className="relative text-base lg:text-lg font-medium text-slate-600 hover:text-blue-600 transition-colors group"
+                className="relative text-xl lg:text-2xl font-medium text-slate-600 hover:text-blue-600 transition-colors group"
               >
                 {link.name}
                 {/* Underline animasi */}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -54,7 +54,7 @@ function Navbar() {
         {/* Tombol Hamburger (Mobile) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-3xl text-slate-800"
+          className="md:hidden text-4xl text-slate-800"
           aria-label="Toggle menu"
         >
           {isOpen ? <HiX /> : <HiMenu />}
@@ -71,13 +71,13 @@ function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white/95 backdrop-blur-md overflow-hidden"
           >
-            <ul className="flex flex-col px-6 py-4 gap-4">
+            <ul className="flex flex-col px-6 py-4 gap-5">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block text-lg text-slate-600 hover:text-blue-600 font-medium transition-colors"
+                    className="block text-xl text-slate-600 hover:text-blue-600 font-medium transition-colors"
                   >
                     {link.name}
                   </a>
