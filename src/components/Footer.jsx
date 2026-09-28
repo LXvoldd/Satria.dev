@@ -133,7 +133,7 @@ function Footer() {
             >
               Satria
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                .dev
+                .
               </span>
             </motion.a>
             <p className="text-sm lg:text-base leading-relaxed text-slate-400 mb-6 max-w-md">

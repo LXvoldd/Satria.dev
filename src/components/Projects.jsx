@@ -9,7 +9,7 @@ function Projects() {
       id="projects"
       className="py-20 lg:py-28 bg-slate-50 relative overflow-hidden"
     >
-      {/* ===== Dekorasi background parallax ===== */}
+      {/* Dekorasi background */}
       <motion.div
         initial={{ y: -150, opacity: 0, rotate: 0 }}
         whileInView={{ y: 0, opacity: 0.5, rotate: 45 }}
@@ -26,7 +26,7 @@ function Projects() {
       />
 
       <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
-        {/* ===== JUDUL — Reveal mewah ===== */}
+        {/* Judul */}
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -65,7 +65,7 @@ function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* ===== Grid Projects ===== */}
+        {/* Grid Projects */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, idx) => (
             <motion.div
@@ -76,12 +76,7 @@ function Projects() {
                 rotate: idx % 2 === 0 ? -3 : 3,
                 scale: 0.9,
               }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-              }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{
                 duration: 0.9,
@@ -91,26 +86,54 @@ function Projects() {
             >
               <TiltCard className="h-full">
                 <div className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-2xl hover:border-blue-200 transition-all duration-500 overflow-hidden flex flex-col h-full">
-                  {/* ===== Glow border effect ===== */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+                  {/* Glow gradient belakang */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 -z-10 blur-xl transition-opacity duration-500" />
 
-                  {/* Header Card — Gradient + Icon */}
-                  <div className="relative h-40 lg:h-48 bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
-                    {/* Pattern dekorasi — muter saat hover */}
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="absolute inset-0 opacity-10"
-                    >
-                      <div className="absolute top-4 right-4 w-32 h-32 border-4 border-white rounded-full" />
-                      <div className="absolute -bottom-8 -left-8 w-40 h-40 border-4 border-white rounded-full" />
-                    </motion.div>
+                  {/* ===== HEADER — Gambar atau Gradient ===== */}
+                  <div className="relative h-48 lg:h-56 overflow-hidden">
+                    {project.image ? (
+                      // Gambar project
+                      <>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                        />
+                        {/* Overlay gradient tipis dari bawah */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                      </>
+                    ) : (
+                      // Placeholder gradient
+                      <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center relative">
+                        {/* Pattern dekorasi */}
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="absolute inset-0 opacity-10"
+                        >
+                          <div className="absolute top-4 right-4 w-32 h-32 border-4 border-white rounded-full" />
+                          <div className="absolute -bottom-8 -left-8 w-40 h-40 border-4 border-white rounded-full" />
+                        </motion.div>
 
-                    {/* Shine effect saat hover */}
+                        {/* Icon folder */}
+                        <motion.div
+                          whileHover={{
+                            scale: 1.2,
+                            rotate: [0, -10, 10, -10, 0],
+                          }}
+                          transition={{ duration: 0.6 }}
+                          className="text-white/90 text-6xl lg:text-7xl drop-shadow-lg"
+                        >
+                          <FaFolder />
+                        </motion.div>
+                      </div>
+                    )}
+
+                    {/* Shine effect */}
                     <motion.div
                       initial={{ x: "-150%" }}
                       whileHover={{ x: "150%" }}
@@ -118,27 +141,13 @@ function Projects() {
                       className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
                     />
 
-                    {/* Icon folder besar */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{
-                          scale: 1.2,
-                          rotate: [0, -10, 10, -10, 0],
-                        }}
-                        transition={{ duration: 0.6 }}
-                        className="text-white/90 text-6xl lg:text-7xl drop-shadow-lg"
-                      >
-                        <FaFolder />
-                      </motion.div>
-                    </div>
-
                     {/* Badge tipe proyek */}
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.3 + idx * 0.08 }}
-                      className="absolute top-4 left-4"
+                      className="absolute top-4 left-4 z-10"
                     >
                       <span className="px-3 py-1 bg-white/95 backdrop-blur-sm text-blue-700 text-xs lg:text-sm font-semibold rounded-full shadow-sm">
                         {project.type}
@@ -146,29 +155,27 @@ function Projects() {
                     </motion.div>
 
                     {/* Corner accent */}
-                    <div className="absolute bottom-0 left-0 w-24 h-1 bg-white/30" />
+                    <div className="absolute bottom-0 left-0 w-24 h-1 bg-white/30 z-10" />
                   </div>
 
                   {/* Body Card */}
                   <div className="p-6 lg:p-7 flex flex-col flex-grow relative">
-                    {/* Judul */}
                     <h3 className="text-lg lg:text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                       {project.title}
                     </h3>
 
-                    {/* Garis dekorasi — tumbuh saat hover */}
+                    {/* Garis dekorasi */}
                     <motion.div
                       initial={{ width: 0 }}
                       whileHover={{ width: 40 }}
                       className="h-0.5 bg-blue-600 rounded-full mb-4 group-hover:w-10 transition-all duration-500"
                     />
 
-                    {/* Deskripsi */}
                     <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-5 flex-grow">
                       {project.description}
                     </p>
 
-                    {/* Tech Stack — stagger */}
+                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-5">
                       {project.tech.map((t, i) => (
                         <motion.span

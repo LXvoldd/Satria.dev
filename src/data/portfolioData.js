@@ -62,7 +62,8 @@ export const projects = [
     tech: ["React JS", "Supabase", "Tailwind CSS"],
     type: "Mandiri",
     demo: "#",
-    github: "#",
+    github: "https://github.com/LXvoldd/MANHWA-GO",
+    image: "/projects/web-manhwa.png",
   },
   {
     title: "Wishlist App",
@@ -72,6 +73,7 @@ export const projects = [
     type: "Mandiri",
     demo: "#",
     github: "#",
+    image: null,
   },
   {
     title: "My Life Garden",
@@ -81,6 +83,7 @@ export const projects = [
     type: "Tim — Programmer",
     demo: "#",
     github: "#",
+    image: null,
   },
   {
     title: "Web Psychotest",
@@ -89,7 +92,18 @@ export const projects = [
     tech: ["React JS", "Laravel", "Tailwind CSS"],
     type: "PKL — Frontend",
     demo: "#",
-    github: "#",
+    github: "https://github.com/LXvoldd/psychotest-frontend",
+    image: "/projects/web-psychotest.png",
+  },
+  {
+    title: "CMS Perusahaan",
+    description:
+      "Content Management System untuk mengelola konten website perusahaan secara dinamis — mulai dari berita, galeri, profil karyawan, hingga pengumuman. Dikembangkan saat PKL. Saya mengerjakan bagian frontend, backend dikerjakan rekan tim.",
+    tech: ["React JS", "Laravel", "Tailwind CSS"],
+    type: "PKL — Frontend",
+    demo: "#",
+    github: "https://github.com/LXvoldd/webCMSperusahaan",
+    image: null,
   },
   {
     title: "CMS Admin Sekolah",
@@ -98,16 +112,8 @@ export const projects = [
     tech: ["React JS", "Laravel", "Tailwind CSS"],
     type: "PKL — Frontend",
     demo: "#",
-    github: "#",
-  },
-  {
-    title: "CMS Admin Kampus",
-    description:
-      "Content Management System untuk mengelola konten website kampus — meliputi program studi, berita akademik, agenda, dan informasi mahasiswa. Dikembangkan saat PKL. Saya mengerjakan bagian frontend, backend dikerjakan rekan tim.",
-    tech: ["React JS", "Laravel", "Tailwind CSS"],
-    type: "PKL — Frontend",
-    demo: "#",
-    github: "#",
+    github: "https://github.com/LXvoldd/sekolahku-web",
+    image: null,
   },
 ];
 
