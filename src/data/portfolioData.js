@@ -63,7 +63,7 @@ export const projects = [
     type: "Mandiri",
     demo: "#",
     github: "https://github.com/LXvoldd/MANHWA-GO",
-    image: "/projects/WEB-MANHWA.png",
+    image: "/projects/web-manhwa.png",
   },
   {
     title: "Web Portofolio",
@@ -93,7 +93,7 @@ export const projects = [
     type: "PKL — Frontend",
     demo: "#",
     github: "https://github.com/LXvoldd/psychotest-frontend",
-    image: "/projects/WEB-PSYCHOTEST.png",
+    image: "/projects/web-psychotest.png",
   },
   {
     title: "CMS Perusahaan",
