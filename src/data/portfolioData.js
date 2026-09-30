@@ -83,7 +83,7 @@ export const projects = [
     type: "Tim — Programmer",
     demo: "#",
     github: "#",
-    image: null,
+    image: "/projects/garden.png",
   },
   {
     title: "Web Psychotest",
