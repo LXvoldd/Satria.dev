@@ -162,14 +162,14 @@ export const certificates = [
   {
     title: "Full Stack Development — Beginner",
     issuer: "Educourse",
-    year: "2026",
+    year: "2024",
     type: "Course",
     image: "/certificates/Sertifikat-Coding-SMK-Medikacom-RPL-(Beginner).png",
   },
   {
     title: "Full Stack Development — Starter",
     issuer: "Educourse",
-    year: "2026",
+    year: "2025",
     type: "Course",
     image: "/certificates/Sertifikat-Coding-SMK-Medikacom-RPL-(Starter).png",
   },
