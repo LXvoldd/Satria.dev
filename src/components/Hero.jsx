@@ -62,18 +62,18 @@ function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 lg:pt-28"
     >
-      {/* ===== BACKGROUND ===== */}
+      {/* ===== BACKGROUND (OPTIMIZED — 2 blob + 1 grid) ===== */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Blob 1 — kiri atas */}
         <motion.div
-          animate={{ x: [0, 60, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
+          animate={{ x: [0, 60, 0], y: [0, 40, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-10 -left-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-40"
         />
 
         {/* Blob 2 — kanan bawah */}
         <motion.div
-          animate={{ x: [0, -50, 0], y: [0, -60, 0], scale: [1, 1.2, 1] }}
+          animate={{ x: [0, -50, 0], y: [0, -60, 0] }}
           transition={{
             duration: 15,
             repeat: Infinity,
@@ -83,71 +83,26 @@ function Hero() {
           className="absolute -bottom-20 -right-20 w-[28rem] h-[28rem] bg-blue-100 rounded-full blur-3xl opacity-50"
         />
 
-        {/* Blob 3 — tengah */}
-        <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/3 w-72 h-72 bg-indigo-100 rounded-full blur-3xl"
-        />
-
-        {/* ===== GRID PATTERN — Layer 1 (utama, lebih jelas) ===== */}
+        {/* Grid pattern tunggal — gerak diagonal */}
         <motion.div
           animate={{
             x: [0, 60, 0],
             y: [0, 60, 0],
           }}
           transition={{
-            duration: 10,
+            duration: 12,
             repeat: Infinity,
-            ease: [0.45, 0, 0.55, 1], // smooth easeInOutSine
+            ease: [0.45, 0, 0.55, 1],
           }}
           className="absolute -inset-[120px]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(37, 99, 235, 0.4) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(37, 99, 235, 0.4) 1.5px, transparent 1.5px)",
+              "linear-gradient(rgba(37, 99, 235, 0.25) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(37, 99, 235, 0.25) 1.5px, transparent 1.5px)",
             backgroundSize: "60px 60px",
           }}
         />
 
-        {/* ===== GRID PATTERN — Layer 2 (halus, gerak kebalikan) ===== */}
-        <motion.div
-          animate={{
-            x: [0, -60, 0],
-            y: [0, -60, 0],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: [0.45, 0, 0.55, 1],
-          }}
-          className="absolute -inset-[120px]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(37, 99, 235, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.2) 1px, transparent 1px)",
-            backgroundSize: "30px 30px",
-          }}
-        />
-
-        {/* ===== GRID PATTERN — Layer 3 (dots kecil, gerak diagonal) ===== */}
-        <motion.div
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -40, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: [0.45, 0, 0.55, 1],
-          }}
-          className="absolute -inset-[120px]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(37, 99, 235, 0.35) 1.5px, transparent 1.5px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-
-        {/* Gradient overlay — lebih soft, biar grid keliatan */}
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60 pointer-events-none" />
       </div>
 
@@ -175,7 +130,7 @@ function Hero() {
             </span>
           </motion.div>
 
-          {/* Fullstack Developer — DIAM */}
+          {/* Fullstack Developer */}
           <motion.p
             variants={itemVariants}
             className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-blue-500 tracking-wide mb-3"
@@ -191,7 +146,7 @@ function Hero() {
             Hello, I'm
           </motion.p>
 
-          {/* NAMA — Typing sekali, 2 baris */}
+          {/* NAMA — Typing */}
           <motion.h1
             variants={itemVariants}
             className="text-4xl lg:text-6xl xl:text-7xl font-bold text-[#172554] leading-[1.1] mb-6"
@@ -282,7 +237,7 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ===== KANAN — Foto ===== */}
+        {/* ===== KANAN — Foto (OPTIMIZED) ===== */}
         <motion.div
           initial={{ opacity: 0, x: 50, scale: 0.9 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -294,57 +249,36 @@ function Hero() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="relative"
           >
-            <motion.div
-              animate={{ scale: [1.1, 1.2, 1.1], opacity: [0.4, 0.6, 0.4] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-blue-200 blur-2xl"
-            />
+            {/* Ring gradient statis (gak pulse) */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-blue-200 blur-2xl opacity-50" />
 
+            {/* Dashed circle muter */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               className="absolute -inset-4 lg:-inset-6 rounded-full border-2 border-dashed border-blue-400"
             />
 
+            {/* Orbit dots — cuma 2 */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute -inset-8 lg:-inset-12 rounded-full pointer-events-none z-20"
             >
-              <motion.div
-                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute top-0 left-1/2 w-3 h-3 bg-blue-500 rounded-full -translate-x-1/2 shadow-lg shadow-blue-400"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                className="absolute bottom-0 left-1/2 w-3 h-3 bg-blue-400 rounded-full -translate-x-1/2 shadow-lg shadow-blue-400"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                className="absolute left-0 top-1/2 w-3 h-3 bg-blue-600 rounded-full -translate-y-1/2 shadow-lg shadow-blue-400"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-                className="absolute right-0 top-1/2 w-3 h-3 bg-blue-400 rounded-full -translate-y-1/2 shadow-lg shadow-blue-400"
-              />
+              <div className="absolute top-0 left-1/2 w-3 h-3 bg-blue-500 rounded-full -translate-x-1/2 shadow-lg shadow-blue-400" />
+              <div className="absolute bottom-0 left-1/2 w-3 h-3 bg-blue-400 rounded-full -translate-x-1/2 shadow-lg shadow-blue-400" />
             </motion.div>
 
+            {/* Sparkle — cuma 2 */}
             {[
               { top: "10%", left: "5%", delay: 0 },
-              { top: "20%", right: "5%", delay: 0.5 },
-              { bottom: "15%", left: "8%", delay: 1 },
-              { bottom: "10%", right: "10%", delay: 1.5 },
+              { bottom: "10%", right: "10%", delay: 1 },
             ].map((pos, i) => (
               <motion.div
                 key={i}
                 animate={{
                   scale: [0.5, 1.2, 0.5],
                   opacity: [0.3, 1, 0.3],
-                  rotate: [0, 180, 360],
                 }}
                 transition={{
                   duration: 3,
@@ -359,6 +293,7 @@ function Hero() {
               </motion.div>
             ))}
 
+            {/* Foto */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -374,6 +309,7 @@ function Hero() {
               <div className="absolute inset-0 rounded-full ring-4 ring-blue-400/0 group-hover:ring-blue-400/60 transition-all duration-500 pointer-events-none" />
             </motion.div>
 
+            {/* Floating badge — Fullstack */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -385,6 +321,7 @@ function Hero() {
               </span>
             </motion.div>
 
+            {/* Floating badge — Open to Work */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaAward,
@@ -26,50 +26,34 @@ function Certificates() {
       id="certificates"
       className="py-20 lg:py-28 bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-50 relative overflow-hidden"
     >
-      {/* ===== Dekorasi Aurora Background ===== */}
+      {/* Aurora — cuma 1, gerak pelan */}
       <motion.div
         animate={{
-          x: [0, 100, 0],
-          y: [0, 50, 0],
-          scale: [1, 1.3, 1],
+          x: [0, 80, 0],
+          y: [0, 40, 0],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-3xl opacity-30 pointer-events-none"
       />
-      <motion.div
-        animate={{
-          x: [0, -100, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-purple-200 to-pink-200 rounded-full blur-3xl opacity-30 pointer-events-none"
-      />
 
-      {/* Floating sparkles */}
-      {[...Array(8)].map((_, i) => (
+      {/* Floating sparkles — 3 aja */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
           animate={{
-            y: [0, -40, 0],
-            opacity: [0, 0.8, 0],
-            scale: [0.5, 1, 0.5],
+            y: [0, -30, 0],
+            opacity: [0, 0.5, 0],
           }}
           transition={{
-            duration: 4 + i,
+            duration: 6 + i,
             repeat: Infinity,
-            delay: i * 0.5,
+            delay: i * 1,
             ease: "easeInOut",
           }}
           className="absolute text-yellow-400 text-sm pointer-events-none"
           style={{
-            left: `${10 + i * 11}%`,
-            top: `${20 + (i % 3) * 25}%`,
+            left: `${20 + i * 25}%`,
+            top: `${25 + (i % 2) * 30}%`,
           }}
         >
           <FaStar />
@@ -77,25 +61,19 @@ function Certificates() {
       ))}
 
       <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
-        {/* ===== JUDUL — Reveal mewah ===== */}
+        {/* ===== JUDUL ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-14 lg:mb-20"
         >
-          {/* Trophy icon bounce */}
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
+            initial={{ scale: 0.5, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.1,
-              type: "spring",
-              stiffness: 150,
-            }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="inline-flex w-16 h-16 lg:w-20 lg:h-20 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-600 text-white text-3xl lg:text-4xl shadow-lg shadow-yellow-300 mb-6"
           >
             <FaTrophy />
@@ -110,21 +88,27 @@ function Certificates() {
           >
             Sertifikat & Penghargaan
           </motion.p>
-          <h2 className="text-3xl lg:text-5xl font-bold text-slate-800 mb-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl lg:text-5xl font-bold text-slate-800 mb-4"
+          >
             Pencapaian Saya
-          </h2>
+          </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="h-1 bg-blue-600 mx-auto rounded-full"
           />
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="text-base lg:text-lg text-slate-500 mt-6 max-w-2xl mx-auto"
           >
             Klik sertifikat untuk melihat detailnya.
@@ -139,48 +123,30 @@ function Certificates() {
             return (
               <motion.div
                 key={cert.title}
-                initial={{
-                  opacity: 0,
-                  y: 100,
-                  rotateY: -90,
-                  scale: 0.5,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  rotateY: 0,
-                  scale: 1,
-                }}
-                viewport={{ once: true, amount: 0.15 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{
-                  duration: 1,
-                  delay: 0.15 * idx,
+                  duration: 1.2,
+                  delay: 0.2 * idx,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-                whileHover={{ y: -12, scale: 1.04, rotateY: 5 }}
+                whileHover={{ y: -8 }}
                 onClick={() => setSelectedImage(cert)}
                 className="group relative cursor-pointer"
               >
                 {/* Glow gradient belakang */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-70 -z-10 blur-2xl transition-opacity duration-500" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-50 -z-10 blur-2xl transition-opacity duration-500" />
 
                 <div className="relative bg-white rounded-2xl border border-slate-100 shadow-sm group-hover:shadow-2xl group-hover:border-blue-200 transition-all duration-500 overflow-hidden flex flex-col h-full">
-                  {/* Shine effect */}
-                  <motion.div
-                    initial={{ x: "-150%" }}
-                    whileHover={{ x: "150%" }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 pointer-events-none z-20"
-                  />
-
                   {/* Preview */}
                   <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-500 to-blue-700 overflow-hidden">
                     {cert.image && !certIsPdf ? (
                       <img
                         src={cert.image}
                         alt={cert.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         onError={(e) => {
                           e.target.style.display = "none";
                           e.target.nextSibling.style.display = "flex";
@@ -188,13 +154,9 @@ function Certificates() {
                       />
                     ) : certIsPdf ? (
                       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                        <motion.div
-                          whileHover={{ scale: 1.15, rotate: -5 }}
-                          transition={{ duration: 0.3 }}
-                          className="text-6xl lg:text-7xl mb-3"
-                        >
+                        <div className="text-6xl lg:text-7xl mb-3">
                           <FaFilePdf />
-                        </motion.div>
+                        </div>
                         <span className="text-xs font-bold bg-red-500 px-3 py-1 rounded-full tracking-widest">
                           PDF
                         </span>
@@ -210,13 +172,9 @@ function Certificates() {
 
                     {/* Overlay hover */}
                     <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition-all duration-300 flex items-center justify-center z-10">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        whileHover={{ scale: 1 }}
-                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-blue-900/70 backdrop-blur-sm px-4 py-2 rounded-full"
-                      >
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-blue-900/70 backdrop-blur-sm px-4 py-2 rounded-full">
                         {certIsPdf ? "Lihat PDF" : "Lihat Sertifikat"}
-                      </motion.span>
+                      </span>
                     </div>
 
                     {/* Badge tipe */}
@@ -226,22 +184,10 @@ function Certificates() {
                       </span>
                     </div>
 
-                    {/* Sparkle di pojok */}
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.4, 1],
-                        opacity: [0.5, 1, 0.5],
-                        rotate: [0, 20, 0],
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        delay: idx * 0.3,
-                      }}
-                      className="absolute top-3 right-3 text-yellow-300 text-lg z-10 drop-shadow-lg"
-                    >
+                    {/* Sparkle statis (hilangin animasi biar gak lag) */}
+                    <div className="absolute top-3 right-3 text-yellow-300 text-lg z-10 drop-shadow-lg">
                       <FaStar />
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Body */}
@@ -290,10 +236,10 @@ function Certificates() {
             </button>
 
             <motion.div
-              initial={{ scale: 0.8, opacity: 0, rotateY: -30 }}
-              animate={{ scale: 1, opacity: 1, rotateY: 0 }}
-              exit={{ scale: 0.8, opacity: 0, rotateY: 30 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col cursor-default shadow-2xl"
             >
