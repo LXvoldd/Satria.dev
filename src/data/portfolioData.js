@@ -63,17 +63,17 @@ export const projects = [
     type: "Mandiri",
     demo: "#",
     github: "https://github.com/LXvoldd/MANHWA-GO",
-    image: "/projects/web-manhwa.png",
+    image: "/projects/WEB-MANHWA.png",
   },
   {
-    title: "Wishlist App",
+    title: "Web Portofolio",
     description:
-      "Aplikasi untuk mencatat dan mengelola daftar keinginan (wishlist). Data tersimpan secara online menggunakan Supabase.",
-    tech: ["React JS", "Supabase", "Tailwind CSS"],
+      "Website portofolio pribadi untuk menampilkan projek dan pengalaman. Dibangun menggunakan React JS, Tailwind CSS, dan dihosting di Vercel.",
+    tech: ["React JS", "Tailwind CSS"],
     type: "Mandiri",
     demo: "#",
-    github: "#",
-    image: null,
+    github: "https://github.com/LXvoldd/Satria.dev",
+    image: "/projects/porto-satria.png",
   },
   {
     title: "My Life Garden",
@@ -93,7 +93,7 @@ export const projects = [
     type: "PKL — Frontend",
     demo: "#",
     github: "https://github.com/LXvoldd/psychotest-frontend",
-    image: "/projects/web-psychotest.png",
+    image: "/projects/WEB-PSYCHOTEST.png",
   },
   {
     title: "CMS Perusahaan",
@@ -103,7 +103,7 @@ export const projects = [
     type: "PKL — Frontend",
     demo: "#",
     github: "https://github.com/LXvoldd/webCMSperusahaan",
-    image: null,
+    image: "/projects/web-perusahaan.png",
   },
   {
     title: "CMS Admin Sekolah",
@@ -113,7 +113,7 @@ export const projects = [
     type: "PKL — Frontend",
     demo: "#",
     github: "https://github.com/LXvoldd/sekolahku-web",
-    image: null,
+    image: "/projects/web-sekolah.png",
   },
 ];
 
